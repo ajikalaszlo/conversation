@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"></head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <body>
+    <div id ="header">
+            <h1>Conversation<br>Topic<br>Generator</h1>
+    </div>
+    <div class="contents">
+        <div id="topic-frame">
+        <div id="topic"></div>
+        <div id="topic-button">
+                <button id="button">Generate!</button>
+        </div>
+        
+        </div>  
+
+    <div id="topic-history">
+        <h2>History</h2>
+    </div>
+</div>
+<script>
+const topic=[
+    "What is your favorite",
+    "What"
+    ];
+const category1=[
+    "fruits",
+    "sports",
+    "weather",
+    "color",
+    "country",
+    "technology",
+    "job",
+    "vehicle",
+    "school subject"
+    ]; 
+const category2=[
+    "like"
+    ];
+const category3=[
+    "What is your habit?",
+    "aa"
+]
+function Generate(){
+const random = topic[ Math.floor( Math.random() * topic.length ) ] ;
+document.getElementById("topic").innerHTML = random;
+if (random　==　topic[0]) {
+    const random2 = category1[ Math.floor( Math.random() * category1.length ) ] ;
+    const category_add = document.getElementById('topic');
+    category_add.insertAdjacentHTML('beforeend', " " + random2 + "?");
+    }
+    else if (random　==　topic[1]) {
+        const random2 = category1[ Math.floor( Math.random() * category1.length ) ] ;
+        const random3 = category2[ Math.floor( Math.random() * category2.length ) ] ;
+        const category_add = document.getElementById('topic');
+        category_add.insertAdjacentHTML('beforeend', " " + random2 + " do you" + " " + random3 + "?");
+    }
+    else if (random　==　topic[2]) {
+        const random2 = category1[ Math.floor( Math.random() * category1.length ) ] ;
+        const random3 = category2[ Math.floor( Math.random() * category2.length ) ] ;
+        const category_add = document.getElementById('topic');
+        category_add.insertAdjacentHTML('beforeend', " " + random2 + " do you" + " " + random3 + "?");
+    }
+const history_add = document.getElementById("topic").innerText;
+    document.getElementById("topic-history").insertAdjacentHTML('beforeend',history_add + "<br>");
+}
+Generate();
+// genereta button
+document.getElementById("button").onclick = function() {
+Generate();
+};
+
+// Delete button
+// $("#button2").on("click",function(){
+//   $("#topic").empty();  
+// });
+
+</script>
+</body>
+</html>
